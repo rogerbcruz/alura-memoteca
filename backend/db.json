@@ -23,6 +23,18 @@
       "autoria": "Steve Rogers",
       "modelo": "modelo2",
       "id": 4
+    },
+    {
+      "conteudo": "Que a sorte esteja ao seu favor!",
+      "autoria": "The Hunger Games",
+      "modelo": "modelo3",
+      "id": 5
+    },
+    {
+      "conteudo": "We are the champions!",
+      "autoria": "Fred Mercury",
+      "modelo": "modelo3",
+      "id": 6
     }
   ]
 }
