@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Pensamento } from './pensamento';
 
 @Injectable({
@@ -11,25 +11,37 @@ export class PensamentoService {
 
   constructor(private http: HttpClient) { }
 
-  listar(){
-    return this.http.get<Pensamento[]>(this.API)
+  listar(pagina: number, filtro: string) {
+
+    const itensPorPagina = 6;
+
+    let params = new HttpParams()
+      .set("_page", pagina)
+      .set("_limit", itensPorPagina);
+
+    if(filtro.length > 2){
+      params = params.set('q', filtro)
+    }
+
+    // return this.http.get<Pensamento[]>(this.API)
+    return this.http.get<Pensamento[]>(this.API, { params })
   }
 
-  criar(pensamento: Pensamento){
+  criar(pensamento: Pensamento) {
     return this.http.post<Pensamento>(this.API, pensamento)
   }
 
-  editar(pensamento: Pensamento){
+  editar(pensamento: Pensamento) {
     const url = `${this.API}/${pensamento.id}`
     return this.http.put<Pensamento>(url, pensamento)
   }
 
-  excluir(id: number){
+  excluir(id: number) {
     const url = `${this.API}/${id}`
     return this.http.delete<Pensamento>(url)
   }
 
-  buscarPorId(id:number){
+  buscarPorId(id: number) {
     let url = `${this.API}/${id}`
     return this.http.get<Pensamento>(url)
   }
