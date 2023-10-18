@@ -4,42 +4,49 @@
       "id": 1,
       "conteudo": "Que bom que você veio",
       "autoria": "Roger",
-      "modelo": "modelo1"
+      "modelo": "modelo1",
+      "favorito": false
     },
     {
       "id": 2,
       "conteudo": "Estudando Angular",
       "autoria": "Estudante Alura",
-      "modelo": "modelo2"
+      "modelo": "modelo2",
+      "favorito": false
     },
     {
       "id": 3,
       "conteudo": "Angular é o melhor",
       "autoria": "Roger",
-      "modelo": "modelo3"
+      "modelo": "modelo3",
+      "favorito": false
     },
     {
       "conteudo": "Se não tem solução, solucionado está",
       "autoria": "Steve Rogers",
       "modelo": "modelo2",
+      "favorito": false,
       "id": 4
     },
     {
       "conteudo": "Que a sorte esteja ao seu favor!",
       "autoria": "The Hunger Games",
       "modelo": "modelo3",
+      "favorito": true,
       "id": 5
     },
     {
       "conteudo": "We are the champions!",
       "autoria": "Fred Mercury",
       "modelo": "modelo3",
+      "favorito": true,
       "id": 6
     },
     {
       "conteudo": "Na minha máquina funciona",
       "autoria": "Dev",
       "modelo": "modelo2",
+      "favorito": false,
       "id": 7
     }
   ]

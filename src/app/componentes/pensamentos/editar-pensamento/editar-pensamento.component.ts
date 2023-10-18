@@ -1,7 +1,6 @@
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { Pensamento } from '../pensamento';
 import { PensamentoService } from '../pensamento.service';
 
 @Component({
@@ -37,7 +36,8 @@ export class EditarPensamentoComponent implements OnInit {
               Validators.required,
               Validators.minLength(3)
             ])],
-          modelo: [pensamento.modelo]
+          modelo: [pensamento.modelo],
+          favorito: [pensamento.favorito]
         })
       )
   }
@@ -54,7 +54,7 @@ export class EditarPensamentoComponent implements OnInit {
   habilitaBotao() {
     if (this.formulario.valid) {
       return 'botao'
-    } else{
+    } else {
       return 'botao__desabilitado'
     }
   }

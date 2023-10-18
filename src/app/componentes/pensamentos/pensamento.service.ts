@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Pensamento } from './pensamento';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class PensamentoService {
 
   constructor(private http: HttpClient) { }
 
-  listar(pagina: number, filtro: string) {
+  listar(pagina: number, filtro: string, favorito: boolean): Observable<Pensamento[]> {
 
     const itensPorPagina = 6;
 
@@ -19,8 +20,12 @@ export class PensamentoService {
       .set("_page", pagina)
       .set("_limit", itensPorPagina);
 
-    if(filtro.length > 2){
+    if (filtro.length > 2) {
       params = params.set('q', filtro)
+    }
+
+    if(favorito){
+      params = params.set('favorito', true)
     }
 
     // return this.http.get<Pensamento[]>(this.API)
@@ -34,6 +39,11 @@ export class PensamentoService {
   editar(pensamento: Pensamento) {
     const url = `${this.API}/${pensamento.id}`
     return this.http.put<Pensamento>(url, pensamento)
+  }
+
+  mudarFavorito(pensamento: Pensamento) {
+    pensamento.favorito = !pensamento.favorito;
+    return this.editar(pensamento)
   }
 
   excluir(id: number) {
