@@ -11,5 +11,8 @@
       <img src="../../../../assets/imagens/icone-excluir.png" alt="Icone excluir"
         routerLink="/pensamentos/excluirPensamento/{{pensamento.id}}">
     </button>
+    <button class="botao-favorito" (click)="mudarFavorito()">
+      <img src="../../../../assets/imagens/{{ ativaLike() }}.png" alt="Botão favorito {{ ativaLike() }}">
+    </button>
   </div>
 </div>
